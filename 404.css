@@ -1,0 +1,30 @@
+@font-face{font-family:'Libre Caslon Display';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/libre-caslon-display-latin.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/assets/fonts/dm-sans-latin.woff2') format('woff2')}
+:root{--paper:#ece8f1;--navy:#192f46;--violet:#655778;--gold:#b4a46b;--muted:#566170;color:var(--navy);background:var(--paper);font-family:'DM Sans',Arial,sans-serif;font-synthesis:none;font-variant-emoji:text}
+*{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased}
+main{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:42px 24px 30px;text-align:center}
+.water-stage{position:relative;display:grid;place-items:center;width:min(600px,100%);height:240px;margin:0 0 25px;flex:none;overflow:hidden}
+.water-ripples{position:absolute;inset:0;width:100%;height:100%;overflow:visible;color:var(--violet)}
+.ripple{transform-box:view-box;transform-origin:50% 50%;animation:still-water 12s cubic-bezier(.22,.4,.5,1) infinite;will-change:transform,opacity}
+.ripple:nth-child(2){animation-delay:-4s}
+.ripple:nth-child(3){animation-delay:-8s}
+.status-code{position:relative;font:24px/1 'Libre Caslon Display',Georgia,serif;letter-spacing:.16em;padding-left:.16em;margin:0;background:transparent;padding-top:7px;padding-bottom:7px}
+.message{position:relative}
+h1{font:400 43px/1.12 'Libre Caslon Display',Georgia,serif;letter-spacing:-.6px;margin:0 0 21px;max-width:610px}
+.invitation{font-size:15px;line-height:1.9;color:var(--muted);margin:0}
+.breath{font:27px/1.4 'Libre Caslon Display',Georgia,serif;color:var(--violet);margin:26px 0 0}
+.breath em{font-style:normal}
+.return-link{display:inline-flex;align-items:baseline;gap:11px;padding:13px 0;margin-top:39px;border-bottom:1px solid var(--gold);font-size:12px;text-decoration:none;color:var(--navy);line-height:1.4}
+.return-link svg{position:relative;top:.12em;flex:none}
+.return-link:hover{color:var(--violet);border-color:var(--violet)}
+.return-link:focus-visible,button:focus-visible{outline:2px solid var(--violet);outline-offset:6px}
+.motion-toggle{font:10px/1.5 'DM Sans',Arial,sans-serif;color:var(--muted);background:transparent;border:0;cursor:pointer;min-height:36px;padding:10px 12px;margin-top:12px}
+.motion-toggle:hover{text-decoration:underline;text-underline-offset:4px}
+body.motion-paused .ripple{animation-play-state:paused}
+@keyframes still-water{0%{transform:scale(.38);opacity:0}15%{opacity:.31}55%{opacity:.20}100%{transform:scale(1.52);opacity:0}}
+@media(max-width:600px){main{padding:34px 26px 24px}.water-stage{height:185px;margin-bottom:24px;width:100%}.water-ripples{left:0;width:100%}h1{font-size:36px;line-height:1.13;letter-spacing:-.5px;max-width:350px;margin-bottom:21px}.desktop-break{display:none}.invitation{font-size:14px;line-height:1.9;max-width:315px}.breath{font-size:26px;margin-top:26px}.return-link{margin-top:37px}.status-code{font-size:23px}}
+@media(max-width:350px){main{padding-left:22px;padding-right:22px}h1{font-size:32px}.water-stage{height:170px}.breath{font-size:24px}}
+@media(max-height:700px){main{padding-top:20px;padding-bottom:16px}.water-stage{height:160px;margin-bottom:18px}h1{font-size:36px;margin-bottom:17px}.breath{font-size:25px;margin-top:19px}.return-link{margin-top:27px}.motion-toggle{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){.ripple{animation:none;will-change:auto;transform:scale(.65);opacity:.22}.ripple:nth-child(2){transform:scale(1);opacity:.15}.ripple:nth-child(3){transform:scale(1.35);opacity:.09}}
+

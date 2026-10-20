@@ -1,0 +1,11 @@
+"use strict";
+document.documentElement.classList.add('js');
+const button = document.querySelector('.menu-toggle');
+const nav = document.querySelector('#site-nav');
+const header = document.querySelector('.site-header');
+const closeMenu = () => { nav.classList.remove('is-open'); header.classList.remove('menu-open'); button.setAttribute('aria-expanded', 'false'); };
+button.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); header.classList.toggle('menu-open', open); button.setAttribute('aria-expanded', String(open)); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); button.focus(); } });
+document.addEventListener('click', e => { if (!header.contains(e.target)) closeMenu(); });
+window.matchMedia('(max-width: 800px)').addEventListener('change', closeMenu);

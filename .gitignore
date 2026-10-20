@@ -1,0 +1,11 @@
+# Local settings and private credentials
+.env
+.env.*
+!.env.example
+.netlify/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.log
